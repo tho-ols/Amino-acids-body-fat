@@ -2,6 +2,7 @@
 title: "Short protocol for exploratory amino acid and fat mass analyses"
 author: "Thomas Olsen (PhD), Ane S. Kværner (PhD), Vegard Lysne (PhD), Kathrine J. Vinknes (PhD)"
 output:
+  github_document:
   html_document:
     keep_md: true
     code_folding: hide
@@ -60,7 +61,7 @@ ggdag::ggdag(dag, layout="circle") +
 <b>Figure 1:</b> <i>Directed acyclic graph illustrating relevant associations between the exposure- and outcome variable and potential confounding factors. Abbreviations: AA, amino acid; BW, body weight; FFM, fat free mass; FM, fat mass.</i>
 
 Based on the DAG above, minimal adjustment sets were created. Models will be adjusted for age, sex and fat free mass. Note that fat mass is a proxy for body fat distribution. 
-```{r minimal adjustment sets}
+```{r minimal adjustment sets, dependson=tidy_dag}
 ggdag_adjustment_set(tidy_dag, type="all", effect="total") +
   theme_dag_grey() +
   theme(legend.title=element_blank())
@@ -76,7 +77,7 @@ We will perform data-driven principal component analysis (PCA) to derive potenti
 
 Whenever possible, results will be presented visually using the `ggplot2()` package. Scatter plots with the linear regression line superimposed. Hypothetical outcome plots, based on 50 bootstrapped samples, are included to visualize the uncertainty around the estimates. An example is shown below. In the online supplement we will include plot of the real data and 19 null plots to illustrate expected variation under conditions with no association.
   
-```{r HOP example}
+```{r HOP example, message=F, warning=F}
 x <- rnorm(100, 10, 1.5)
 Zx <- scale(x)
 Zy <- .5*Zx + rnorm(100, 0, sqrt(1 - (.8^2)))

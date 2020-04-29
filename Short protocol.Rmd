@@ -1,7 +1,6 @@
 ---
 title: "Short protocol for exploratory amino acid and fat mass analyses"
 author: "Thomas Olsen (PhD), Ane S. Kværner (PhD), Vegard Lysne (PhD), Kathrine J. Vinknes (PhD)"
-date: "4/21/2020"
 output:
   html_document:
     keep_md: true

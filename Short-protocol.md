@@ -10,13 +10,7 @@ output:
   word_document: default
 ---
 
-```{r setup, include=FALSE}
-library(tidyverse)
-library(dagitty) 
-library(ggdag)
-library(ungeviz)
-library(patchwork)
-```
+
 
 
 ### Aim of the study
@@ -32,7 +26,8 @@ All statistical analyses in this study will be conducted by using R software for
 Associations between amino acids and measures of body composition will be performed using linear regression. Data will be transformed as appropriate depending on the distribution of residuals in preliminary models using the raw data. A directed acyclic graphs (DAG) presented in Figure 1 outlines the rationale for covariate adjustment. Figure 2 illustrates valid adjustment sets. Main outcomes will be presented as scatterplots with the line of best fit. Uncertainty will be visualized by constructing hypothetical outcome plots using the `ungeviz()` package and the `bootstrappify()` function to generate bootstrapped analyses in order to visualize uncertainty. Estimates from the linear regression models, confidence interval and p-values will be presented in the online supplementary material. 
 
 
-```{r DAG}
+
+```r
 dag<-dagitty::dagitty("dag{FM -> AA
 FFM -> AA
 Age -> AA
@@ -58,14 +53,19 @@ ggdag::ggdag(dag, layout="circle") +
         axis.ticks = element_blank())
 ```
 
+![](Short-protocol_files/figure-html/DAG-1.png)<!-- -->
+
 <b>Figure 1:</b> <i>Directed acyclic graph illustrating relevant associations between the exposure- and outcome variable and potential confounding factors. Abbreviations: AA, amino acid; BW, body weight; FFM, fat free mass; FM, fat mass.</i>
 
 Based on the DAG above, minimal adjustment sets were created. Models will be adjusted for age, sex and fat free mass. Note that fat mass is a proxy for body fat distribution. 
-```{r minimal adjustment sets, dependson=tidy_dag}
+
+```r
 ggdag_adjustment_set(tidy_dag, type="all", effect="total") +
   theme_dag_grey() +
   theme(legend.title=element_blank())
 ```
+
+![](Short-protocol_files/figure-html/minimal adjustment sets-1.png)<!-- -->
 
 <b>Figure 2</b>: <i>Valid minimal adjustment sets based on the directed acyclic graph. Abbreviations: AA, amino acid; BW, body weight; FFM, fat free mass; FM, fat mass.</i> 
 
@@ -77,7 +77,8 @@ We will perform data-driven principal component analysis (PCA) to derive potenti
 
 Whenever possible, results will be presented visually using the `ggplot2()` package. Scatter plots with the linear regression line superimposed. Hypothetical outcome plots, based on 50 bootstrapped samples, are included to visualize the uncertainty around the estimates. An example is shown below. In the online supplement we will include plot of the real data and 19 null plots to illustrate expected variation under conditions with no association.
   
-```{r HOP example, message=F, warning=F}
+
+```r
 x <- rnorm(100, 10, 1.5)
 Zx <- scale(x)
 Zy <- .5*Zx + rnorm(100, 0, sqrt(1 - (.8^2)))
@@ -95,6 +96,8 @@ b<-ggplot(df, aes(Zx, Zy)) +
 
 a+b
 ```
+
+![](Short-protocol_files/figure-html/HOP example-1.png)<!-- -->
 
 <b>Figure 3</b>: <i>Example of an hypothetical outcome plot with 50 bootstrapped samples of simulated data. Blue line indicates original line of best fit, grey lines are derived from 50 bootstrapped samples. Panels show linear and loess fit</i>
 

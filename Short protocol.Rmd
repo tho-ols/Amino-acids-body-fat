@@ -31,7 +31,7 @@ All statistical analyses in this study will be conducted by using R software for
 Associations between amino acids and measures of body composition will be performed using linear regression. Data will be transformed as appropriate depending on the distribution of residuals in preliminary models using the raw data. A directed acyclic graphs (DAG) presented in Figure 1 outlines the rationale for covariate adjustment. Figure 2 illustrates valid adjustment sets. Main outcomes will be presented as scatterplots with the line of best fit. Uncertainty will be visualized by constructing hypothetical outcome plots using the `ungeviz()` package and the `bootstrappify()` function to generate bootstrapped analyses in order to visualize uncertainty. Estimates from the linear regression models, confidence interval and p-values will be presented in the online supplementary material. 
 
 
-```{r DAG, cache=TRUE}
+```{r DAG}
 dag<-dagitty::dagitty("dag{FM -> AA
 FFM -> AA
 Age -> AA

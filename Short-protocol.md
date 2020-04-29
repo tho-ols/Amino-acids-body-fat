@@ -96,6 +96,13 @@ b<-ggplot(df, aes(Zx, Zy)) +
 a+b
 ```
 
+```
+## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula 'y ~ x'
+```
+
 ![](Short-protocol_files/figure-html/HOP example-1.png)<!-- -->
 
 <b>Figure 3</b>: <i>Example of an hypothetical outcome plot with 50 bootstrapped samples of simulated data. Blue line indicates original line of best fit, grey lines are derived from 50 bootstrapped samples. Panels show linear and loess fit</i>

@@ -1,2 +1,2 @@
 # Amino-acids-body-fat
-Contains versions of analysis plans and code used for statistical analysis
+This repository contains brief research protocols and analysis plans for a research project on amino acids and body fat distribution. All versions will be available. Upon eventual publication of the work, source code and available datasets will be available in this repository.

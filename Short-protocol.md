@@ -26,6 +26,15 @@ body composition including resistance, reactance and phase angle data
 from the bioimpedance measurements and assess their relationship with
 the amino acid profile in blood and urine.
 
+### Study population
+
+Data were obtained from 34 men and women who participated in two pilot
+dietary interventions published
+[here](https://www.mdpi.com/2072-6643/10/12/1822) and
+[here](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-020-02288-x).
+Both trials were registered on www.ClinicalTrials.gov (NCT02647970 and
+NCT03629392).
+
 #### Initial analyses
 
 All statistical analyses in this study will be conducted by using R
